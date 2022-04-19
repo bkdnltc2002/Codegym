@@ -1,0 +1,43 @@
+import pandas as pd 
+
+df = pd.read_csv("data/subset-covid-data.csv")
+
+
+########## biết số hàng để for ####################
+shape_info = df.shape
+
+so_hang_cua_df = df.shape[0]
+print("so hang cua df la", so_hang_cua_df)
+columns_df = df.columns
+print(columns_df)
+for i in range(so_hang_cua_df):
+    row = df.loc[i]
+    print(row)
+    print("*"*10)
+
+
+################################################
+ luu y khi tao gia tri Nan
+df.rename(columns={"country": "country_newname"}, inplace=True)
+df['new_column']= pd.Series(np.nan, index=df.index)
+df['new_column_1']= pd.Series('NaN', index=df.index)
+
+
+##################################################
+# print("thay doi ten cot")
+df.rename(columns={"country": "country_newname"}, inplace=True)
+
+# print("them mot cot moi")
+# df['new_column']= pd.Series(np.nan, index=df.index)
+# # luu y, 'NaN' # np.nan
+# df['new_column_1']= pd.Series('NaN', index=df.index)
+
+print("them cot moi, sau cot thu 0")
+df.insert(1,"add_column",pd.Series(10, index=df.index))
+
+print("so hang truoc khi them moi mot cot", df.shape[0])
+
+# print("them moi hang")
+df.append({"add_column": 11, "continent": "VN chau luc"}, ignore_index=True)
+
+print(df.loc[df.shape[0]-1])

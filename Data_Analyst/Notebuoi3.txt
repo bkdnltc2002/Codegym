@@ -1,0 +1,49 @@
+df = pd.read_csv("data\FoodPrice_in_Turkey.csv")
+
+# print(df.info())
+
+# them cot moi
+df["new_column"] = np.nan
+df["new_column_1"] = 10
+print("*************")
+# print(df.head())
+# xoa cot
+del df["new_column"]
+
+# print(df.head())
+
+# them dong moi
+df = df.append({"Place": "Vn", "Pirce":45}, ignore_index=True)
+print(df.tail())
+# xoa dong
+df.drop(0, axis=0, inplace=True)
+df.reset_index(drop=True, inplace=True)
+print(df.tail())
+
+
+############################################
+# try cap den dong 1
+row = df.iloc[1]
+# try nhieu row: 2:5
+rows = df.iloc[3:5]
+# print(rows)
+
+# try cap tu dong 3 den dong 5,va chi lay 2 cot dau.
+row_colums = df.iloc[3:5,-3:-1]
+# print(row_colums)
+
+# try cap den vi tri cu the: i,j (chi so dong, ten cot)
+cell = df.loc[3, "Price"]
+
+# print(cell)
+
+# filter
+target = df[df["Price"]> 10].reset_index(drop=True)
+
+target.loc[0,"Price"] = "12.0Cao"
+print(target.head())
+# try cap vao cac cell, thay the gia tri cua cell
+target.replace("12.0Cao", 252, inplace=True)
+
+print("*"*15)
+print(target.head())
