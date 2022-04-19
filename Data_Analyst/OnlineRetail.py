@@ -56,21 +56,13 @@ data = pd.read_csv("Data_Analyst\OnlineRetail.csv", encoding='ISO-8859-1')
 
 # print(data.isna())
 
-data = data.dropna()
-data = data['Description'].fillna('Không biết')
+data_1 = data.dropna()
+values = {"Description": "Không biết"}
+data_1 = data_1.fillna(value=values)
+data_1 = pd.DataFrame(data_1)
 
+data_1 = data_1[((data_1['Quantity'] < 0) |
+                 (data_1['UnitPrice'] == 0))]
 
-# Q1 = data_1.quantile(0.25)
-# Q3 = data_1.quantile(0.75)
-# IQR = Q3-Q1
-sns.kdeplot(data['Quantity'])
+sns.kdeplot(data=data_1.loc[:, ['Quantity', 'UnitPrice']])
 plt.show()
-
-data_1 = data[~((data['Quantity'] < 0) | 
-                (data['UnitPrice'] <= 0)).all(axis=1)]
-
-# plt.boxplot(data.loc[:, ['Quantity', 'UnitPrice']])
-# plt.show()
-# data_1 = data[((data['Quantity'] < 0) | (data['UnitPrice'] == 0))]
-# plt.boxplot(data_1.loc[:, ['Quantity', 'UnitPrice']])
-# plt.show()
