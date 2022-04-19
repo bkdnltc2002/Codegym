@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 from nbformat import read
 import pandas as pd
 import numpy as np
+import seaborn as sns
 
-data = pd.read_csv("OnlineRetail.csv", encoding='ISO-8859-1')
+data = pd.read_csv("Data_Analyst\OnlineRetail.csv", encoding='ISO-8859-1')
 
 # print(data.info())
 # print(data.shape)
@@ -55,19 +56,21 @@ data = pd.read_csv("OnlineRetail.csv", encoding='ISO-8859-1')
 
 # print(data.isna())
 
-data_1=data.dropna()
-data_1=data_1['Description'].fillna('Không biết')
+data = data.dropna()
+data = data['Description'].fillna('Không biết')
 
 
 # Q1 = data_1.quantile(0.25)
 # Q3 = data_1.quantile(0.75)
 # IQR = Q3-Q1
-data_2= data_1[~((data_1 < ['Quantity'] < 0) | (data_1['UnitPrice'] == 0)).any(axis=1)]
+sns.kdeplot(data['Quantity'])
+plt.show()
+
+data_1 = data[~((data['Quantity'] < 0) | 
+                (data['UnitPrice'] <= 0)).all(axis=1)]
 
 # plt.boxplot(data.loc[:, ['Quantity', 'UnitPrice']])
 # plt.show()
 # data_1 = data[((data['Quantity'] < 0) | (data['UnitPrice'] == 0))]
-plt.boxplot(data_1.loc[:, ['Quantity', 'UnitPrice']])
-plt.show()
-
-
+# plt.boxplot(data_1.loc[:, ['Quantity', 'UnitPrice']])
+# plt.show()
