@@ -5,13 +5,7 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
 import seaborn as sns
 
-
-# Lọc ra các bản ghi bán nhà riêng tại phường Trung liệt hoặc phường Khâm Thiên
-# Lọc các thông tin Địa chỉ, Giá, Hướng nhà, Hướng ban công của các bản ghi có giấy chứng nhận sổ đỏ và có 3 phòng ngủ trở lên.
-# Với mỗi loại nhà đất, tính trung bình cộng giá cũng như giá lớn nhất và giá nhỏ nhất.
-# Tính trung bình cộng số phòng ngủ, số phòng vệ sinh, số tầng của mỗi phường.
-
-data = pd.read_excel("House_Price.xlsx")
+data = pd.read_excel("Data_Analyst\House_Price.xlsx")
 
 # print(data.info())
 # print(data.shape)
@@ -47,8 +41,9 @@ data = pd.read_excel("House_Price.xlsx")
 # nha_ngo = nha_ngo[~((nha_ngo.loc[:, ['area', 'giá/m2']] < (Q1 - 1.5 * IQR))|
 #                     (nha_ngo.loc[:, ['area', 'giá/m2']] > (Q3 + 1.5 * IQR))).any(axis=1)]
 
-
 # ssc = StandardScaler().fit_transform(pd.DataFrame(nha_ngo['giá/m2']))
 # mms = MinMaxScaler().fit_transform(pd.DataFrame(nha_ngo['giá/m2']))
 # rsc = RobustScaler().fit_transform(pd.DataFrame(nha_ngo['giá/m2']))
 
+sns.barplot(data['toilet'], data['price'])
+plt.show()

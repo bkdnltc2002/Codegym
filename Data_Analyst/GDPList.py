@@ -1,3 +1,4 @@
+from unittest import result
 import matplotlib.pyplot as plt
 from nbformat import read
 import pandas as pd
@@ -21,10 +22,22 @@ data = pd.read_csv("Data_Analyst\GDPlist.csv", encoding='ISO-8859-1')
 # min=data['GDP (millions of US$)'].min()
 # max=data['GDP (millions of US$)'].max()
 
-#pop_continent=data.Continent.mode()
+# pop_continent=data.Continent.mode()
 
 # sum_mean=data.pivot_table(values='GDP (millions of US$)', index='Continent',  aggfunc = {'sum', 'mean'})
 # sum_mean.rename(columns={'mean': 'TBC GDP', 'sum':'Tong GDP'},inplace=True)
 
-plt.bar(data['Continent'],data['GDP (millions of US$)'])
+# plt.bar(data['Continent'],data['GDP (millions of US$)'])
+# plt.show()
+
+# d11=data[data['Country'].isin(['Vietnam', 'Indonesia', 'Cambodia', 'Thailand','Malaysia'])]
+# data1 = pd.DataFrame({'x': d11['Country'], 'y': d11['GDP (millions of US$)']})
+# data1.plot(x = 'x', y = 'y', kind = 'bar')
+# plt.xlabel('Country', fontsize = 14)
+# plt.ylabel('GDP', fontsize = 14)
+# plt.show()
+
+filter1 = data[data['Country'].isin(['Vietnam', 'Indonesia', 'Cambodia', 'Thailand', 'Malaysia'])]
+result = filter1[['Country','GDP (millions of US$)']]
+plt.pie(result['GDP (millions of US$)'], labels = result['Country'])
 plt.show()
