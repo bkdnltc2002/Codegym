@@ -59,7 +59,6 @@ data = pd.read_csv("Data_Analyst\OnlineRetail.csv", encoding='ISO-8859-1')
 data_1 = data.dropna()
 values = {"Description": "Không biết"}
 data_1 = data_1.fillna(value=values)
-data_1 = pd.DataFrame(data_1)
 
 data_1 = data_1[((data_1['Quantity'] < 0) |
                  (data_1['UnitPrice'] == 0))]
