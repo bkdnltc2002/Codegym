@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from nbformat import read
 import pandas as pd
 
-data = pd.read_csv("GDPList.csv", encoding='ISO-8859-1')
+data = pd.read_csv("Data_Analyst\GDPlist.csv", encoding='ISO-8859-1')
 
 # print(data.info())
 # print(data.shape)
@@ -26,3 +26,5 @@ data = pd.read_csv("GDPList.csv", encoding='ISO-8859-1')
 # sum_mean=data.pivot_table(values='GDP (millions of US$)', index='Continent',  aggfunc = {'sum', 'mean'})
 # sum_mean.rename(columns={'mean': 'TBC GDP', 'sum':'Tong GDP'},inplace=True)
 
+plt.bar(data['Continent'],data['GDP (millions of US$)'])
+plt.show()
