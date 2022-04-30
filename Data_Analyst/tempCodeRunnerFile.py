@@ -1,1 +1,1 @@
-print(data.loc[data.Country == 'Colombia'])
+plt.show()

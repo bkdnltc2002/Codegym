@@ -66,12 +66,26 @@ data = pd.read_excel("Data_Analyst\House_Price.xlsx")
 # So sánh giá nhà trung bình trên 1 m2 giữa các hình thức nhà (type_of_land). Đồn thời thể hiện tỉ lệ % bài đăng (bản ghi) giữa các hình thức nhà (type_of_land).
 # Vẽ biểu đồ thể hiện sự thay đổi giá nhà trung bình trên 1m2 theo số lượng phòng ngủ, theo số phòng toilet hoặc theo diện tích.
 
-plt.bar(x, y2, label="line 2", width=0.5)
-axes1 = plt.gca()
-axes2 = axes1.twinx()
-axes2.plot(x, y1, label="line 1", linewidth=2, c="r", marker="o")
-fig = plt.gcf()
-axes3 = fig.add_axes([left, bottom, width, height])
-axes3.plot()
-axes3 = fig.add_axes([0.2, 0.6, 0.25, 0.25])
-axes3.plot(x, y2)
+# plt.bar(x, y2, label="line 2", width=0.5)
+# axes1 = plt.gca()
+# axes2 = axes1.twinx()
+# axes2.plot(x, y1, label="line 1", linewidth=2, c="r", marker="o")
+# fig = plt.gcf()
+# axes3 = fig.add_axes([left, bottom, width, height])
+# axes3.plot()
+# axes3 = fig.add_axes([0.2, 0.6, 0.25, 0.25])
+# axes3.plot(x, y2)
+
+# data1 = data.dropna()
+# area_price = data1[["area", "price"]]
+# bedroom_price = data1[["bedroom", "price"]]
+# sns.lmplot(x="area", y="price", data=area_price)
+# sns.lmplot(x="bedroom", y="price", data=bedroom_price)
+
+# sns.violinplot(y="price", data=data1)
+
+# sns.countplot(x="house_direction", data=data1)
+
+# sns.boxplot(x="house_direction", y="price", data=data1)
+
+# plt.show()
