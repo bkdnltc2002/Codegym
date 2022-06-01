@@ -62,10 +62,6 @@ data = pd.read_excel("Data_Analyst\House_Price.xlsx")
 # sns.barplot(data["toilet"], data["price"])
 # plt.show()
 
-# Phân tích mối liên hệ giữa diện tích với giá nhà. Đồng thời, giữa số phòng ngủ với giá nhà và giữa số toilet với giá nhà.
-# So sánh giá nhà trung bình trên 1 m2 giữa các hình thức nhà (type_of_land). Đồn thời thể hiện tỉ lệ % bài đăng (bản ghi) giữa các hình thức nhà (type_of_land).
-# Vẽ biểu đồ thể hiện sự thay đổi giá nhà trung bình trên 1m2 theo số lượng phòng ngủ, theo số phòng toilet hoặc theo diện tích.
-
 # plt.bar(x, y2, label="line 2", width=0.5)
 # axes1 = plt.gca()
 # axes2 = axes1.twinx()

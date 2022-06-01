@@ -2,6 +2,7 @@ from unittest import result
 import matplotlib.pyplot as plt
 from nbformat import read
 import pandas as pd
+from scipy import stats
 
 data = pd.read_csv("Data_Analyst\GDPlist.csv", encoding="ISO-8859-1")
 
@@ -53,3 +54,15 @@ data = pd.read_csv("Data_Analyst\GDPlist.csv", encoding="ISO-8859-1")
 # result = filter1[["Country", "GDP (millions of US$)"]]
 # plt.pie(result["GDP (millions of US$)"], labels=result["Country"])
 # plt.show()
+
+print(stats.ttest_1samp(data["GDP (millions of US$)"], 50000))
+
+asia = data.loc[data["Continent"] == "Asia"]
+europe = data.loc[data["Continent"] == "Europe"]
+print(stats.ttest_ind(europe["GDP (millions of US$)"],
+      asia["GDP (millions of US$)"], equal_var=True, alternative="greater"))
+
+america = data.loc[(data["Continent"] == "South America") |
+                   (data["Continent"] == "North America")]
+print(stats.ttest_ind(
+    europe["GDP (millions of US$)"], america["GDP (millions of US$)"]))
