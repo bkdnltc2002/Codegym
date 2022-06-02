@@ -1,3 +1,2 @@
-america = data.loc[data["Continent"] == "America"]
-print(stats.ttest_ind(europe["GDP (millions of US$)"],
-      america["GDP (millions of US$)"], equal_var=True))
+kho_khan = kho_khan[~kho_khan["NumberOfOpenCreditLinesAndLoans"].isna()]
+# ko_kho_khan = ko_kho_khan[~ko_kho_khan["NumberOfOpenCreditLinesAndLoans"].isna()]

@@ -60,7 +60,7 @@ print(stats.ttest_1samp(data["GDP (millions of US$)"], 50000))
 asia = data.loc[data["Continent"] == "Asia"]
 europe = data.loc[data["Continent"] == "Europe"]
 print(stats.ttest_ind(europe["GDP (millions of US$)"],
-      asia["GDP (millions of US$)"], equal_var=True, alternative="greater"))
+      asia["GDP (millions of US$)"], alternative="greater"))
 
 america = data.loc[(data["Continent"] == "South America") |
                    (data["Continent"] == "North America")]
