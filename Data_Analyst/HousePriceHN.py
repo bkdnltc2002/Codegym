@@ -55,8 +55,8 @@ data = data.dropna(how='all')
 data1 = data.filter(['price'])
 data1 = data1.dropna()
 
-q1, q2, q3, q4 = data1.price.quantile(0.25), data1.price.quantile(
-    0.5), data1.price.quantile(0.75), data1.price.quantile(1.0)
+q1, q2, q3 = data1.price.quantile(0.25), data1.price.quantile(
+    0.5), data1.price.quantile(0.75)
 
 
 def price_order(price):
